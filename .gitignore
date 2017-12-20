@@ -36,7 +36,6 @@ target/
 *.cmd
 ### NetBeans ###
 nbproject/private/
-build/
 nbbuild/
 dist/
 nbdist/
