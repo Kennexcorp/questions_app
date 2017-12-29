@@ -6,17 +6,16 @@
       <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
       <p id="profile-name" class="profile-name-card"></p>
 
-      <form class="form-signin" v-on:submit.prevent="doLogin">
-        <span id="reauth-email" class="reauth-email"></span>
-        <input v-model="user.email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-        <input v-model="user.password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-        <div id="remember" class="checkbox">
-          <label>
-            <input type="checkbox" value="remember-me"> Remember me
-          </label>
-        </div>
+      <form class="form-signin" method="get" action="http://localhost:8080/login_api/login">
+        <span id="reauth-Username" class="reauth-Username"></span>
+        
+        <input v-model="user.Username" type="Username" id="inputUsername" class="form-control" placeholder="Username address" name="username" required autofocus>
+        
+        <input v-model="user.password" type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required>
+        
+        
         <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
-        <p v-if="submitData">{{submitData|json}}</p>
+      
       </form><!-- /form -->
       <a href="#" class="forgot-password">
         Forgot the password?
@@ -37,7 +36,7 @@
       return {
         msg: 'Welcome to Login Page',
         user: {
-          email: null,
+          username: null,
           password: null,
         },
         submitData: null
@@ -55,7 +54,8 @@
           })
       },
       doLogin() {
-          this.submitData = this.user;
+        this.submitData = this.user;
+        
       }
     }
   }
@@ -122,7 +122,7 @@
     min-height: 1em;
   }
 
-  .reauth-email {
+  .reauth-Username {
     display: block;
     color: #404040;
     line-height: 2;
@@ -137,14 +137,14 @@
     box-sizing: border-box;
   }
 
-  .form-signin #inputEmail,
+  .form-signin #inputUsername,
   .form-signin #inputPassword {
     direction: ltr;
     height: 44px;
     font-size: 16px;
   }
 
-  .form-signin input[type=email],
+  .form-signin input[type=Username],
   .form-signin input[type=password],
   .form-signin input[type=text],
   .form-signin button {

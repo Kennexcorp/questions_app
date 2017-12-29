@@ -10,6 +10,6 @@ clone the repo using git clone <repo_address>
 
 3. run mvn clean install
 
-4. run mvm --projects backend spring-boot:run
+4. run mvn --projects backend spring-boot:run
 
 this will start the development server on port 8080. 
